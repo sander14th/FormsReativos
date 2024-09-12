@@ -1,0 +1,95 @@
+<form [formGroup]="formulario">
+    <!--Nome-->
+    @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+        <p class="alert alert-warning">O campo nome é obrigatorio</p>
+    }
+
+    @if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+        <p class="alert alert-warning">O campo nome é necessário 3 caracteres</p>
+    }
+    <input type="text" formControlName="nome" placeholder="Digite o nome" class="form-control">
+    <br>
+
+
+
+    <!--Idade-->
+    @if (formulario.get('idade').hasError('required') && formulario.get('nome').touched) {
+        <p class="alert alert-warning">O campo idade é obrigatorio</p>
+    }
+    @if (formulario.get('idade').hasError('min') && formulario.get('idade').touched) {
+        <p class="alert alert-warning">O campo idade tem que ser maior ou igual a 0</p>
+    }
+    @if (formulario.get('idade').hasError('max') && formulario.get('idade').touched) {
+        <p class="alert alert-warning">O campo idade tem que ser menor ou igual a 120</p>
+    }
+    <input type="number" formControlName="idade" placeholder="Digite a idade"class="form-control">
+    <br>
+
+
+
+    <!--Curso-->
+    @if (formulario.get('curso').hasError('required') && formulario.get('curso').touched) {
+        <p class="alert alert-warning">O campo curso é obrigatorio</p>
+    }
+    @if (formulario.get('curso').hasError('minlength') && formulario.get('curso').touched) {
+        <p class="alert alert-warning">O campo curso é necessário mais de 1 caractere</p>
+    }
+    @if (formulario.get('curso').hasError('maxlength') && formulario.get('curso').touched) {
+        <p class="alert alert-warning">O campo curso só é necessário até 3 caracteres</p>
+    }
+    <input type="text" formControlName="curso" placeholder="Digite o curso" class="form-control">
+    <br>
+
+
+    <!--Ano-->
+    @if (formulario.get('ano').hasError('required') && formulario.get('ano').touched) {
+        <p class="alert alert-warning">O campo ano é obrigatorio</p>
+    }
+    @if (formulario.get('ano').hasError('min') && formulario.get('ano').touched) {
+        <p class="alert alert-warning">O campo ano tem que ser igual ou maior a 1</p>
+    }
+    @if (formulario.get('ano').hasError('max') && formulario.get('ano').touched) {
+        <p class="alert alert-warning">O campo ano tem que ser igual ou menor a 4</p>
+    }
+    <input type="number" formControlName="ano" placeholder="Digite o ano" class="form-control">
+    <br>
+
+    <!--Cadastrar-->
+    @if (btncadastrar) {
+        <input type="button" value="Cadastrar Estudante"
+        (click)="cadastrar()" class="btn btn-primary" [disabled]="formulario.invalid">
+    }@else {
+        <input type="button" value="Alterar Estudante" 
+        (click)="alterar()" class="btn btn-primary" [disabled]="formulario.invalid">
+        <input type="button" value="Remover Estudante"
+        (click)="remover()" class="btn btn-primary">
+        <input type="button" value="Cancelar" 
+        (click)="cancelar()" class="btn btn-primary">
+    }
+   
+   
+</form>
+
+<table class="table table-striped table-bordered table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Curso</th>
+            <th>Ano</th>
+            <th>Selecionar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let v of vetor; index as indice">
+            <td>{{indice+1}}</td>
+            <td>{{v.nome}}</td>
+            <td>{{v.idade}}</td>
+            <td>{{v.curso}}</td>
+            <td>{{v.ano}}</td>
+            <td><button class="btn btn-primary" (click)="selecionar(indice)">Selecionar</button></td>
+        </tr>
+    </tbody>
+</table>

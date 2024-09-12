@@ -1,0 +1,50 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Cor de fundo da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: #ffffff; /* Cor de fundo do formulário */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Largura menor do formulário */
+    text-align: center;
+}
+h1 {
+    margin-bottom: 15px;
+    font-size: 20px; /* Tamanho do título reduzido */
+    color: #00796b; /* Cor do título */
+}
+.form-group {
+    margin-bottom: 12px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #00796b; /* Cor dos rótulos */
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #00796b; /* Cor da borda dos campos */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #b2dfdb; /* Cor de fundo dos campos */
+}
+.form-group input[type="submit"] {
+    background-color: #00796b; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px; /* Tamanho da fonte do botão reduzido */
+}
+.form-group input[type="submit"]:hover {
+    background-color: #004d40; /* Cor do botão ao passar o mouse */
+}
